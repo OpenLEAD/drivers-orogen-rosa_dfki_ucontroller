@@ -1,0 +1,38 @@
+name "rosa_dfki_ucontroller"
+version "0.1"
+
+# If new data types need to be defined, they have to be put in a separate C++
+# header, and this header will be loaded here
+import_types_from "raw_io"
+import_types_from 'base'
+using_task_library 'iodrivers_base'
+
+using_library "rosa_dfki_ucontroller"
+
+task_context "Task" do
+    needs_configuration
+
+    subclasses 'iodrivers_base::Task'
+    
+    property "uri", "/std/string"
+
+    output_port "inductive_right", "/raw_io/Digital"
+    output_port "inductive_left", "/raw_io/Digital"
+    output_port "inductive_key_detached", "/raw_io/Digital"
+    output_port "inductive_key_attached", "/raw_io/Digital"
+
+    output_port "inclination_body", "/raw_io/Analog"
+    output_port "inclination_body_2", "/raw_io/Analog"
+
+    output_port 'pressure_samples', '/base/samples/Pressure'
+    output_port 'depth_samples', '/base/samples/RigidBodyState'
+    
+   
+    property 'sensor_frame', '/std/string', 'depth_sensor_frame'
+    property 'world_frame', '/std/string', 'depth_world_frame'
+  
+    # By default, the task will be periodic with a period of 0.1
+    periodic 0.1
+end
+
+# vim: ft=ruby

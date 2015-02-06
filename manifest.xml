@@ -1,0 +1,21 @@
+<package>
+  <description brief="Component that Simulates Buschremote for DFKI electronics">
+  Outputs uCUART data same way Buschremote does, so to mimic it.
+  </description>
+  <author>Eduardo Elael/elael2@gmail.com</author>
+  <license></license>
+  <url>http://</url>
+  <logo>http://</logo>
+  <depend package="base/cmake" />
+  <!--
+   To add any dependencies use the depend tag
+  <depend package="dummy-dependency-0" />
+	...
+  <depend package="dummy-dependency-n-1" />
+  <depend package="dummy-dependency-n" />
+  -->
+  <depend package="drivers/orogen/iodrivers_base" />
+  <depend package="base/orogen/types" />
+  <depend package="drivers/orogen/raw_io" />
+  <depend package="drivers/rosa_dfki_ucontroller" />
+</package>
