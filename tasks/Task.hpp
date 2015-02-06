@@ -4,6 +4,7 @@
 #define ROSA_DFKI_UCONTROLLER_TASK_TASK_HPP
 
 #include "rosa_dfki_ucontroller/TaskBase.hpp"
+#include <rosa_dfki_ucontroller/uCUartDriver.hpp>
 
 namespace rosa_dfki_ucontroller {
 
@@ -25,7 +26,7 @@ namespace rosa_dfki_ucontroller {
     {
 	friend class TaskBase;
     protected:
-
+        uCUartDriver m_driver;
 
 
     public:
@@ -85,6 +86,7 @@ namespace rosa_dfki_ucontroller {
          */
         void updateHook();
 
+        void processIO();
         /** This hook is called by Orocos when the component is in the
          * RunTimeError state, at each activity step. See the discussion in
          * updateHook() about triggering options.

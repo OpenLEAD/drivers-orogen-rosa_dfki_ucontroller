@@ -14,8 +14,6 @@ task_context "Task" do
 
     subclasses 'iodrivers_base::Task'
     
-    property "uri", "/std/string"
-
     output_port "inductive_right", "/raw_io/Digital"
     output_port "inductive_left", "/raw_io/Digital"
     output_port "inductive_key_detached", "/raw_io/Digital"
