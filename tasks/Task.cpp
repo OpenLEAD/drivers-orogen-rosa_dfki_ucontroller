@@ -29,7 +29,7 @@ Task::~Task()
 bool Task::configureHook()
 {
     if (!_io_port.value().empty())
-        m_driver.openURI(_io_port.get()+":19200");
+        m_driver.openURI(_io_port.get());
 
     setDriver(&m_driver);
 
