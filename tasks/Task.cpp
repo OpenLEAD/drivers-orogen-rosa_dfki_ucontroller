@@ -44,10 +44,12 @@ bool Task::startHook()
         return false;
     return true;
 }
-void Task::processIO()
-{
-}
 void Task::updateHook()
+{
+    TaskBase::updateHook();
+}
+
+void Task::processIO()
 {
     Packet packet = m_driver.getPacket();
     base::Time now = base::Time::now();
@@ -89,9 +91,6 @@ void Task::updateHook()
     _inclination_body_2.write(
         raw_io::Analog(now, packet.getAngleY())
     );
-    
-
-    TaskBase::updateHook();
 }
 void Task::errorHook()
 {
