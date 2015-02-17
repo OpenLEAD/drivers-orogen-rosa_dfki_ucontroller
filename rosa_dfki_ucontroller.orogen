@@ -25,6 +25,7 @@ task_context "Task" do
     output_port 'pressure_samples', '/base/samples/Pressure'
     output_port 'depth_samples', '/base/samples/RigidBodyState'
     
+    output_port 'accelerometer', '/base/samples/RigidBodyAcceleration'
    
     property 'sensor_frame', '/std/string', 'depth_sensor_frame'
     property 'world_frame', '/std/string', 'depth_world_frame'

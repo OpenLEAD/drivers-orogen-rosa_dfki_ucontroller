@@ -67,6 +67,10 @@ void Task::processIO()
     depth_sample.targetFrame = _sensor_frame.get();
     _depth_samples.write(depth_sample);
     
+    base::samples::RigidBodyAcceleration accelerometer;
+    accelerometer.time = now;
+    accelerometer.acceleration = packet.getAcceleration();
+    _accelerometer.write(accelerometer);
     
     _inductive_right.write(
         raw_io::Digital(now, packet.getCon21())
